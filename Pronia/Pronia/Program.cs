@@ -10,7 +10,7 @@ namespace Pronia
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<ProniaDBContext>(opt => opt.UseSqlServer("server=LAPTOP-VDB7N6D8\\SQLEXPRESS;database=ProniaDB;trusted_connection=true;integrated security=true"));
+            builder.Services.AddDbContext<ProniaDBContext>(opt => opt.UseSqlServer("server=LAPTOP-VDB7N6D8\\SQLEXPRESS;database=ProniaDB;trusted_connection=true;integrated security=true;TrustServerCertificate=true;"));
             var app = builder.Build();
             app.UseStaticFiles();
 
