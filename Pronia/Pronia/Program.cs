@@ -13,7 +13,12 @@ namespace Pronia
             builder.Services.AddDbContext<ProniaDBContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
             var app = builder.Build();
             app.UseStaticFiles();
+            app.UseRouting();
 
+            app.MapControllerRoute(
+           "admin",
+           "{area:exists}/{controller=home}/{action=index}/{id?}"
+            );
             app.MapControllerRoute(
                 "default",
 
